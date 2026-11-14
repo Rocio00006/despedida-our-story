@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Story — Despedida de Quinto Año</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500;1,600&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Caveat:wght@500;600;700&family=Reenie+Beanie&family=Special+Elite&family=Abril+Fatface&family=Alfa+Slab+One&family=DM+Serif+Display:ital@0;1&family=Bebas+Neue&family=Rubik+Mono+One&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<div class="escenario">
+  <div class="motas-doradas"></div>
+
+  <!-- audio opcional: funciona igual sin estos archivos -->
+  <audio id="audio-pagina" preload="none">
+    <source src="assets/page.mp3" type="audio/mpeg">
+  </audio>
+  <audio id="audio-musica" preload="none" loop>
+    <source src="assets/music.mp3" type="audio/mpeg">
+  </audio>
+
+  <button class="boton-silencio" id="boton-silencio" type="button" aria-label="Silenciar música">
+    <svg viewBox="0 0 24 24">
+      <path d="M4 9v6h4l5 5V4L8 9H4z" fill="var(--azul-petroleo)"/>
+      <path class="onda onda-1" d="M16 9a3.6 3.6 0 0 1 0 6" fill="none" stroke="var(--azul-petroleo)" stroke-width="1.8" stroke-linecap="round"/>
+      <path class="onda onda-2" d="M18.6 6.4a7.2 7.2 0 0 1 0 11.2" fill="none" stroke="var(--azul-petroleo)" stroke-width="1.8" stroke-linecap="round"/>
+    </svg>
+  </button>
+
+  <!-- ============ ESCENA 0 — PORTADA / LIBRO CERRADO ============ -->
+  <section class="escena-portada" id="escena-portada">
+    <div class="camara-libro" id="camara-libro">
+      <div class="libro-cerrado" id="libro-cerrado">
+
+        <!-- página interior, se revela al abrir -->
+        <div class="pagina-interior"></div>
+
+        <!-- resplandor que asoma al abrir (fijo, no gira con la tapa) -->
+        <div class="resplandor-apertura"></div>
+
+        <div class="pagina-flip pagina-flip-1"></div>
+        <div class="pagina-flip pagina-flip-2"></div>
+
+        <!-- tapa del libro -->
+        <div class="pagina-tapa" id="pagina-tapa">
+          <div class="tapa-lomo"></div>
+
+          <!-- collage sobre la portada -->
+          <div class="tapa-recorte-periodico recorte-periodico borde-rasgado">
+            FOREIGN LANGUAGES DEPARTMENT — Four years of lessons, friendship and growth. On se souviendra de tout. Every word learned opened a door. L'aventure continue ailleurs.
+          </div>
+
+          <div class="tapa-estampilla">
+            <svg viewBox="0 0 24 24"><path d="M12 0 L14.3 9.7 L24 12 L14.3 14.3 L12 24 L9.7 14.3 L0 12 L9.7 9.7 Z" fill="var(--dorado)"/></svg>
+          </div>
+
+          <svg class="tapa-avion" viewBox="0 0 100 60">
+            <polygon points="2,50 92,18 54,30 42,58" fill="var(--papel-viejo)" stroke="var(--sepia)" stroke-width="1.5" stroke-linejoin="round"/>
+            <path d="M42,30 L54,30 L92,18" fill="none" stroke="var(--sepia)" stroke-width="1.2"/>
+            <path d="M42,30 L42,58" fill="none" stroke="var(--sepia)" stroke-width="1.2"/>
+          </svg>
+
+          <div class="tapa-etiqueta-vieja textura-papel-viejo borde-rasgado">
+            <div class="cinta tapa-etiqueta-cinta"></div>
+          </div>
+
+          <!-- título -->
+          <div class="tapa-contenido">
+            <h1 class="tapa-titulo" data-ransom="OUR STORY" data-seed="our-story-2026"></h1>
+            <p class="tapa-subtitulo">Notre histoire · Nuestra historia</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <p class="toca-abrir">Toca para abrir</p>
+  </section>
+
+  <!-- ============ ESCENA 2 — LIBRO ABIERTO / POP-UPS ============ -->
+  <section class="escena-popup oculta" id="escena-popup">
+    <div class="libro-abierto">
+      <div class="pagina-abierta pagina-izq textura-papel"></div>
+      <div class="pagina-abierta pagina-der textura-papel"></div>
+      <div class="pliegue-central"></div>
+
+      <!-- letras sueltas -->
+      <div class="popup popup-letras">
+        <div class="popup-inner" data-ransom="ABÇÑÉ" data-seed="idiomas-letras"></div>
+      </div>
+
+      <!-- palabras centrales -->
+      <div class="popup popup-dreams">
+        <div class="popup-inner popup-dreams-pila">
+          <span data-ransom="DREAMS" data-seed="our-story-2026"></span>
+          <span data-ransom="RÊVES" data-seed="our-story-2026"></span>
+          <span data-ransom="SUEÑOS" data-seed="our-story-2026"></span>
+        </div>
+      </div>
+
+      <!-- thank you -->
+      <div class="popup popup-thankyou">
+        <p class="popup-inner frase-idiomas">Thank you · Merci · Gracias</p>
+      </div>
+
+      <!-- globo terráqueo -->
+      <div class="popup popup-globo">
+        <svg class="popup-inner" viewBox="0 0 100 100">
+          <circle cx="50" cy="50" r="40" fill="var(--azul-petroleo)" stroke="var(--dorado)" stroke-width="2"/>
+          <ellipse cx="50" cy="50" rx="16" ry="40" fill="none" stroke="var(--crema)" stroke-width="1.6" opacity="0.8"/>
+          <ellipse cx="50" cy="50" rx="40" ry="16" fill="none" stroke="var(--crema)" stroke-width="1.6" opacity="0.8"/>
+          <path d="M10,50 Q50,70 90,50" fill="none" stroke="var(--crema)" stroke-width="1.4" opacity="0.7"/>
+          <path d="M10,50 Q50,30 90,50" fill="none" stroke="var(--crema)" stroke-width="1.4" opacity="0.7"/>
+        </svg>
+      </div>
+
+      <!-- pila de libros -->
+      <div class="popup popup-libros">
+        <svg class="popup-inner" viewBox="0 0 100 70">
+          <rect x="6" y="46" width="88" height="14" rx="2" fill="var(--terracota)" transform="rotate(-2 50 53)"/>
+          <rect x="10" y="32" width="80" height="14" rx="2" fill="var(--azul-petroleo)" transform="rotate(1.5 50 39)"/>
+          <rect x="14" y="18" width="70" height="14" rx="2" fill="var(--mostaza)" transform="rotate(-1.5 50 25)"/>
+          <rect x="20" y="4" width="56" height="14" rx="2" fill="var(--rosa-empolvado)" transform="rotate(2 50 11)"/>
+        </svg>
+      </div>
+
+      <!-- hoja de cuaderno mini -->
+      <div class="popup popup-cuaderno">
+        <div class="popup-inner hoja-cuaderno borde-rasgado"></div>
+      </div>
+
+      <!-- avión de papel -->
+      <div class="popup popup-avion-pop">
+        <svg class="popup-inner" viewBox="0 0 100 60">
+          <polygon points="2,50 92,18 54,30 42,58" fill="var(--hueso)" stroke="var(--marron-suave)" stroke-width="1.5" stroke-linejoin="round"/>
+          <path d="M42,30 L54,30 L92,18" fill="none" stroke="var(--sepia)" stroke-width="1.2"/>
+          <path d="M42,30 L42,58" fill="none" stroke="var(--sepia)" stroke-width="1.2"/>
+        </svg>
+      </div>
+
+      <!-- burbujas de diálogo -->
+      <div class="popup popup-bocadillo-hello">
+        <p class="popup-inner bocadillo">Hello!</p>
+      </div>
+      <div class="popup popup-bocadillo-bonjour">
+        <p class="popup-inner bocadillo bocadillo-der">Bonjour!</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ESCENA 3 — MENSAJE CENTRAL ============ -->
+  <section class="escena-mensaje oculta textura-papel" id="escena-mensaje">
+    <div class="mensaje-contenedor">
+
+      <svg class="mensaje-estrella mensaje-estrella-1" viewBox="0 0 24 24"><path d="M12 0 L14.3 9.7 L24 12 L14.3 14.3 L12 24 L9.7 14.3 L0 12 L9.7 9.7 Z" fill="var(--dorado)"/></svg>
+      <svg class="mensaje-estrella mensaje-estrella-2" viewBox="0 0 24 24"><path d="M12 0 L14.3 9.7 L24 12 L14.3 14.3 L12 24 L9.7 14.3 L0 12 L9.7 9.7 Z" fill="var(--dorado)"/></svg>
+
+      <svg class="mensaje-flor mensaje-flor-1" viewBox="0 0 80 80">
+        <g transform="translate(40,40)">
+          <g fill="var(--rosa-empolvado)">
+            <ellipse cx="0" cy="-22" rx="11" ry="18"/>
+            <ellipse cx="0" cy="-22" rx="11" ry="18" transform="rotate(72)"/>
+            <ellipse cx="0" cy="-22" rx="11" ry="18" transform="rotate(144)"/>
+          </g>
+          <g fill="var(--terracota)">
+            <ellipse cx="0" cy="-22" rx="11" ry="18" transform="rotate(216)"/>
+            <ellipse cx="0" cy="-22" rx="11" ry="18" transform="rotate(288)"/>
+          </g>
+          <circle r="9" fill="var(--mostaza)"/>
+        </g>
+      </svg>
+      <svg class="mensaje-flor mensaje-flor-2" viewBox="0 0 80 80">
+        <g transform="translate(40,40)">
+          <g fill="var(--mostaza)">
+            <ellipse cx="0" cy="-20" rx="10" ry="16"/>
+            <ellipse cx="0" cy="-20" rx="10" ry="16" transform="rotate(72)"/>
+            <ellipse cx="0" cy="-20" rx="10" ry="16" transform="rotate(144)"/>
+          </g>
+          <g fill="var(--rosa-empolvado)">
+            <ellipse cx="0" cy="-20" rx="10" ry="16" transform="rotate(216)"/>
+            <ellipse cx="0" cy="-20" rx="10" ry="16" transform="rotate(288)"/>
+          </g>
+          <circle r="8" fill="var(--terracota)"/>
+        </g>
+      </svg>
+
+      <svg class="mensaje-linea-ondulada" viewBox="0 0 160 20">
+        <path d="M2,10 Q22,-4 42,10 T82,10 T122,10 T158,10" fill="none" stroke="var(--dorado)" stroke-width="2.4" stroke-linecap="round"/>
+      </svg>
+
+      <div class="mensaje-linea-wrap">
+        <p class="mensaje-linea1">No es un adiós,</p>
+        <div class="cubierta-reveal"></div>
+      </div>
+
+      <div class="mensaje-linea-wrap">
+        <p class="mensaje-linea2">es el comienzo de algo <span class="palabra-extraordinario">extraordinario<span class="subrayado-dorado"></span></span>.</p>
+        <div class="cubierta-reveal"></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============ ESCENA FINAL — TARJETA DE INVITACIÓN ============ -->
+  <section class="escena-final oculta" id="escena-final">
+    <div class="tarjeta-wrap">
+
+      <!-- recortes que asoman detrás -->
+      <div class="respaldo-periodico recorte-periodico borde-rasgado">
+        THE DAILY LANGUAGES — Four years of learning come to a close. Les adieux ne sont qu'un au revoir. A new chapter begins for every graduate. L'histoire continue, différemment. Friendship, grammar and endless vocabulary lists. On n'oublie jamais sa première langue étrangère.
+      </div>
+      <div class="respaldo-cuaderno hoja-cuaderno borde-rasgado"></div>
+
+      <!-- tarjeta -->
+      <div class="tarjeta-final textura-papel">
+
+        <div class="cinta cinta-esq-izq"></div>
+        <div class="cinta cinta-esq-der"></div>
+
+        <!-- birrete pop-up -->
+        <svg class="deco-svg deco-birrete" viewBox="0 0 120 100">
+          <path d="M44,52 Q60,66 76,52 L72,76 Q60,86 48,76 Z" fill="var(--azul-petroleo)"/>
+          <path d="M60,32 C77,40 80,56 70,68" stroke="var(--dorado)" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+          <g stroke="var(--dorado)" stroke-width="2" stroke-linecap="round">
+            <line x1="70" y1="68" x2="64" y2="76"/>
+            <line x1="70" y1="68" x2="71" y2="78"/>
+            <line x1="70" y1="68" x2="77" y2="75"/>
+          </g>
+          <polygon points="60,6 114,32 60,56 6,32" fill="var(--azul-noche)" stroke="var(--dorado)" stroke-width="2"/>
+          <circle cx="60" cy="32" r="4.5" fill="var(--dorado)"/>
+        </svg>
+
+        <!-- avión de papel con trayectoria -->
+        <svg class="deco-svg deco-avion-trayecto" viewBox="0 0 100 70">
+          <path d="M4,60 Q40,10 92,16" fill="none" stroke="var(--terracota)" stroke-width="3" stroke-dasharray="6 6" stroke-linecap="round"/>
+        </svg>
+        <svg class="deco-svg deco-avion" viewBox="0 0 100 60">
+          <polygon points="2,50 92,18 54,30 42,58" fill="var(--hueso)" stroke="var(--marron-suave)" stroke-width="1.5" stroke-linejoin="round"/>
+          <path d="M42,30 L54,30 L92,18" fill="none" stroke="var(--sepia)" stroke-width="1.2"/>
+          <path d="M42,30 L42,58" fill="none" stroke="var(--sepia)" stroke-width="1.2"/>
+        </svg>
+
+        <!-- estrellas doradas -->
+        <svg class="deco-svg deco-estrella-1" viewBox="0 0 24 24"><path d="M12 0 L14.3 9.7 L24 12 L14.3 14.3 L12 24 L9.7 14.3 L0 12 L9.7 9.7 Z" fill="var(--dorado)"/></svg>
+        <svg class="deco-svg deco-estrella-2" viewBox="0 0 24 24"><path d="M12 0 L14.3 9.7 L24 12 L14.3 14.3 L12 24 L9.7 14.3 L0 12 L9.7 9.7 Z" fill="var(--dorado)"/></svg>
+        <svg class="deco-svg deco-estrella-3" viewBox="0 0 24 24"><path d="M12 0 L14.3 9.7 L24 12 L14.3 14.3 L12 24 L9.7 14.3 L0 12 L9.7 9.7 Z" fill="var(--dorado)"/></svg>
+
+        <!-- flor de papel -->
+        <svg class="deco-svg deco-flor" viewBox="0 0 80 80">
+          <g transform="translate(40,40)">
+            <g fill="var(--rosa-empolvado)">
+              <ellipse cx="0" cy="-22" rx="11" ry="18"/>
+              <ellipse cx="0" cy="-22" rx="11" ry="18" transform="rotate(72)"/>
+              <ellipse cx="0" cy="-22" rx="11" ry="18" transform="rotate(144)"/>
+            </g>
+            <g fill="var(--terracota)">
+              <ellipse cx="0" cy="-22" rx="11" ry="18" transform="rotate(216)"/>
+              <ellipse cx="0" cy="-22" rx="11" ry="18" transform="rotate(288)"/>
+            </g>
+            <circle r="9" fill="var(--mostaza)"/>
+          </g>
+        </svg>
+
+        <!-- sello postal -->
+        <div class="sello-postal">
+          <svg class="estrella-sello" viewBox="0 0 24 24"><path d="M12 0 L14.3 9.7 L24 12 L14.3 14.3 L12 24 L9.7 14.3 L0 12 L9.7 9.7 Z" fill="var(--azul-petroleo)"/></svg>
+          <span class="linea-1">PROMOCIÓN</span>
+          <span class="linea-2">CLASS OF 2026</span>
+        </div>
+
+        <!-- contenido -->
+        <div class="tarjeta-contenido">
+          <h1 class="titulo-invitados" data-ransom="¡ESTÁN INVITADOS!" data-seed="our-story-2026"></h1>
+
+          <h2 class="titulo-despedida">DESPEDIDA DE QUINTO AÑO</h2>
+          <div class="etiqueta-idiomas">EDUCACIÓN EN IDIOMAS</div>
+
+          <p class="frase-central">Una etapa termina, una historia comienza.</p>
+
+          <div class="estampilla-fecha">
+            <div class="fecha-fila">
+              <span class="dia-grande">27</span>
+              <span class="fecha-texto">VIERNES<br>DE NOVIEMBRE<br>DE 2026</span>
+            </div>
+            <div class="hora">3:30 P. M.</div>
+          </div>
+
+          <div class="lugar">
+            <svg class="icono-pin" viewBox="0 0 24 24">
+              <path d="M12 2C7 2 3 6 3 11c0 7 9 11 9 11s9-4 9-11c0-5-4-9-9-9z" fill="none" stroke="var(--terracota)" stroke-width="2" stroke-linejoin="round"/>
+              <circle cx="12" cy="11" r="3" fill="var(--terracota)"/>
+            </svg>
+            <span class="lugar-texto">
+              <span class="lugar-etiqueta">LUGAR:</span>
+              <span class="lugar-nombre">AUDITORIO ANÍBAL PONCE</span>
+            </span>
+          </div>
+
+          <div class="firma">
+            <p class="firma-carino">Con cariño,</p>
+            <p class="firma-organizadores">Estudiantes de Cuarto Año de Idiomas</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <button class="boton-reiniciar" id="boton-reiniciar" type="button">↺ Ver de nuevo</button>
+  </section>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
